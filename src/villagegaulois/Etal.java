@@ -27,8 +27,9 @@ public class Etal {
 
 	public String libererEtal() {
 		if (!etalOccupe) {
-			return "L'étal est déjà vide.";
+			return "L'étal est déjà libre.";
 		}
+		
 		etalOccupe = false;
 		StringBuilder chaine = new StringBuilder(
 				"Le vendeur " + vendeur.getNom() + " quitte son étal, ");
@@ -51,9 +52,11 @@ public class Etal {
 	}
 
 	public String acheterProduit(int quantiteAcheter, Gaulois acheteur) {
-		if (acheteur == null) {
-			throw new NullPointerException("La vendeur ne doit pas être null.");
-			
+		try {
+			acheteur.getNom();
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			return "";
 		}
 		if (quantiteAcheter < 1) {
 			throw new IllegalArgumentException("La quantité doit être positive.");

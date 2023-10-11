@@ -94,10 +94,18 @@ public class Village {
 		return etal.libererEtal();
 	}
 	
-	public String afficherMarche() {
+	public String afficherMarche() throws VillageSansChefException {
+		if (chef == null) {
+			throw new VillageSansChefException("Le village ne possède pas de chef.");
+		}
 		StringBuilder chaine = new StringBuilder();
 		chaine.append("Le marché du village «" + nom + "» possède plusieurs étals :\n");
 		chaine.append(marche.afficherMarche());
 		return chaine.toString();
 	}
+	
+	public void afficherMarcheApp() throws VillageSansChefException {
+		System.out.println(afficherVillageois());
+	}
+	
 }
