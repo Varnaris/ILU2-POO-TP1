@@ -18,7 +18,7 @@ public class ScenarioCasDegrade {
 		Gaulois obelix = new Gaulois("Obélix", 25);
 		
 		System.out.println(village.installerVendeur(bonemine, "fleurs", 20));
-
+		System.out.println(village.afficherVillageoisApp());
 		System.out.println(village.rechercherVendeursProduit("fleurs"));
 		Etal etalFleur = village.rechercherEtal(bonemine);
 		System.out.println(etalFleur.acheterProduit(-10, obelix));
